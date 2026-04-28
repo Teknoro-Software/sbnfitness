@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -32,8 +33,15 @@ export default function Navbar() {
             className={`fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300
       ${scrolled ? "bg-black shadow-lg" : "bg-black/40 backdrop-blur"}`}
         >
-            {/* LOGO */}
-            <h1 className="font-bold text-xl gold">SBN Fitness</h1>
+            <Link href="/" className="flex items-center gap-2">
+                <Image
+                    src="/logo.png"
+                    alt="SBN Fitness Logo"
+                    width={80}
+                    height={40}
+                    className="object-contain"
+                />
+            </Link>
 
             {/* DESKTOP MENU */}
             <div className="hidden md:flex space-x-8">
